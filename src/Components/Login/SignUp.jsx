@@ -25,8 +25,9 @@ function SignUp() {
 
 
   const handleSendOTP = async () => {
+    
     try {
-      
+      setShowOTP(true)
       const enteredOTP = otp.join('');
     // Process registration and OTP verification here
     console.log(`Entered OTP: ${enteredOTP}`);

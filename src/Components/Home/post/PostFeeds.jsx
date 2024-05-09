@@ -15,7 +15,7 @@ function PostFeeds() {
   return (
     <>
     <Navbar />
-    <div className="flex ">
+    <div className="flex flex-col md:flex-row ">
     <div className='text-center pt-10'>
       <h1 className='text-xl'>Profile</h1>
       <ProfileCard />
@@ -29,6 +29,8 @@ function PostFeeds() {
     <Notification />
   </div>
     </div>
+ 
+   
    
   <Footer />
     </>
