@@ -2,9 +2,9 @@
 
 
 
-import React, { useState } from "react";
-
 import React, { useState, useEffect } from "react";
+
+
 
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -84,6 +84,7 @@ const handleOTPEnter = (index, value) => {
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
+  
     
     try {
       const response = await axios.post(
@@ -92,6 +93,7 @@ const handleOTPEnter = (index, value) => {
           employeename: username,
           email: email,
           password: password,
+          
         }
       );
       alert("Employee Registration Successfully");
@@ -104,12 +106,13 @@ const handleOTPEnter = (index, value) => {
       // Handle error
       console.error("Error:", error);
     }
+  }
 
 
-  const [otp, setOtp] = useState("");
+ 
   const [showOtpPopup, setShowOtpPopup] = useState(false);
   const jwt = localStorage.getItem('jwt');
-  const navigate = useNavigate();
+  
   const dispatch = useDispatch();
   const { auth, otpStatus } = useSelector(store => store)
   const [formData, setFormData] = useState({
@@ -144,10 +147,10 @@ const handleOTPEnter = (index, value) => {
   //   }
   // };
 
-  const handleSendOtp = () => {
-    dispatch(sendOtp(formData.email));// Dispatch sendOtp action with email
-    setShowOtpPopup(true);
-  };
+  // const handleSendOtp = () => {
+  //   dispatch(sendOtp(formData.email));// Dispatch sendOtp action with email
+  //   setShowOtpPopup(true);
+  // };
 
   // const handleVerifyOtp = async () => {
   //   try {
@@ -196,14 +199,14 @@ const handleOTPEnter = (index, value) => {
   //   }
   // };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    // Dispatch the register action with form data
-    dispatch(register(formData));
-    alert("user registered successfully")
-    navigate("/"); // Navigate to Home Page
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   // Dispatch the register action with form data
+  //   dispatch(register(formData));
+  //   alert("user registered successfully")
+  //   navigate("/"); // Navigate to Home Page
 
-  };
+  // };
 
   return (
     <>
@@ -387,7 +390,7 @@ const handleOTPEnter = (index, value) => {
             <input
               type="text"
               value={otp}
-              onChange={(e) => setOtp(e.target.value)}
+              onChange={(e) => setOTP(e.target.value)}
               placeholder="Enter OTP"
               className="border border-gray-300 rounded-lg p-2 mb-4 w-full"
             />
